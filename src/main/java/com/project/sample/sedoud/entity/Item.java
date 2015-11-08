@@ -3,6 +3,7 @@ package com.project.sample.sedoud.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,6 +22,7 @@ public class Item {
 
     private String description;
 
+    @ManyToMany(mappedBy = "items")
     private Set<Category> categories = new HashSet<Category>();
 
 

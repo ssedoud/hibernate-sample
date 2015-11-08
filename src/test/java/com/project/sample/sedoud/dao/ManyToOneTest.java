@@ -63,9 +63,9 @@ public class ManyToOneTest extends AbstractTransactionalJUnit4SpringContextTests
 
         compagnyDao.save(company);
         compagnyDao.save(company2);
-        compagnyDao.evict(company);
-        compagnyDao.evict(company2);
-
+       // compagnyDao.evict(company);
+        //compagnyDao.evict(company2);
+        logger.info("list companies : ");
         List<Company> dbCompany = compagnyDao.getAll();
         for (Company c :dbCompany){
             c.getEmployees().get(0).getName();

@@ -30,7 +30,10 @@ public class Category {
     private Category parentCategory;
 
 
-
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name="CATEGORY_ITEM",
+            joinColumns={@JoinColumn(name="CATEGORY_ID")},
+            inverseJoinColumns={@JoinColumn(name="ITEM_ID")})
     private Set<Item> items  = new HashSet<Item>();
 
 
