@@ -1,4 +1,4 @@
-package com.project.sample.sedoud.entity;
+package com.project.sample.sedoud.data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Item entity.
+ * Item data.
  * Many to Many association with category
  */
 @Entity

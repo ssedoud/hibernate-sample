@@ -1,12 +1,13 @@
-package com.project.sample.sedoud.entity;
+package com.project.sample.sedoud.data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Compagny entity
+ * Compagny data
  */
+@SuppressWarnings("JpaDataSourceORMInspection")
 @Entity
 public class Company {
 
@@ -16,7 +17,9 @@ public class Company {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "company")
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(name="employed_persons",
+    joinColumns = @JoinColumn(name = "company_id"),inverseJoinColumns = @JoinColumn(name = "person_id"))
     private List<Person> employees = new ArrayList<Person>();
 
     public Long getId() {

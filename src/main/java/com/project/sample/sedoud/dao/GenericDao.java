@@ -6,7 +6,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- * Created by said.sedoud on 8/14/15.
+ * Generic DAO encapsulate all method for all DAO
  */
 public class GenericDao<T> {
 
@@ -14,7 +14,7 @@ public class GenericDao<T> {
     protected EntityManager em;
 
 
-    public void save(T entity){
+    public void persist(T entity){
         em.persist(entity);
     }
 
@@ -27,7 +27,7 @@ public class GenericDao<T> {
         return em.find(clazz,id);
     }
 
-    public void delete(T entity){
+    public void remove(T entity){
         em.remove(entity);
     }
 }

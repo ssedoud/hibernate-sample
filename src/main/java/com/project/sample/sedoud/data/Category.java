@@ -1,11 +1,11 @@
-package com.project.sample.sedoud.entity;
+package com.project.sample.sedoud.data;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Category entity.
+ * Category data.
  * One to Many self-association
  */
 @Entity
@@ -30,6 +30,10 @@ public class Category {
     private Category parentCategory;
 
 
+    /**
+     * @JoinTable is used
+     */
+    @SuppressWarnings("JpaDataSourceORMInspection")
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name="CATEGORY_ITEM",
             joinColumns={@JoinColumn(name="CATEGORY_ID")},

@@ -1,23 +1,22 @@
-package com.project.sample.sedoud.dao;
+package com.project.sample.sedoud.dao.implementation;
 
-import com.project.sample.sedoud.entity.Company;
-import com.project.sample.sedoud.entity.Person;
+import com.project.sample.sedoud.dao.CompagnyDao;
+import com.project.sample.sedoud.dao.GenericDao;
+import com.project.sample.sedoud.data.Company;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
- * Dao for company entity
+ * Dao for company data
  */
 @Transactional
 @Repository
 public class CompagnyDaoImpl extends GenericDao<Company> implements CompagnyDao {
 
-    public void save(Company company) {
-        super.save(company);
+    public void persist(Company company) {
+        super.persist(company);
     }
 
     public List<Company> getAll() {

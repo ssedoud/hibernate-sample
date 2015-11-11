@@ -1,16 +1,15 @@
 package com.project.sample.sedoud.dao;
 
-import com.project.sample.sedoud.entity.Company;
-import com.project.sample.sedoud.entity.Person;
+import com.project.sample.sedoud.data.Company;
 
 import java.util.List;
 
 /**
- * Dao for person entity
+ * Dao for person data
  */
 public interface CompagnyDao {
 
-    void save(Company company);
+    void persist(Company company);
 
     List<Company> getAll();
 

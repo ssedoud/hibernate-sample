@@ -1,7 +1,7 @@
 package com.project.sample.sedoud.dao;
 
-import com.project.sample.sedoud.entity.Company;
-import com.project.sample.sedoud.entity.Person;
+import com.project.sample.sedoud.data.Company;
+import com.project.sample.sedoud.data.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -35,7 +35,7 @@ public class ManyToOneTest extends AbstractTransactionalJUnit4SpringContextTests
         company.setName("PriceMinister");
         company.addEmployees(employee);
 
-        compagnyDao.save(company);
+        compagnyDao.persist(company);
 
         List<Company> compagnies = compagnyDao.getAll();
         for (Company compagny : compagnies) {
@@ -61,8 +61,8 @@ public class ManyToOneTest extends AbstractTransactionalJUnit4SpringContextTests
             company2.addEmployees(employee);
         }
 
-        compagnyDao.save(company);
-        compagnyDao.save(company2);
+        compagnyDao.persist(company);
+        compagnyDao.persist(company2);
        // compagnyDao.evict(company);
         //compagnyDao.evict(company2);
         logger.info("list companies : ");

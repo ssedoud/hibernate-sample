@@ -1,13 +1,11 @@
-package com.project.sample.sedoud.entity;
+package com.project.sample.sedoud.data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
- * User entity.
+ * User data.
  */
 @Entity
 public class User {

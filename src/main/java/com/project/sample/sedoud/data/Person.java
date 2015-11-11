@@ -1,12 +1,9 @@
-package com.project.sample.sedoud.entity;
+package com.project.sample.sedoud.data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
- * Person entity
+ * Person data
  */
 @Entity
 public class Person {
@@ -20,6 +17,8 @@ public class Person {
     private String surname;
 
     @ManyToOne
+    @JoinTable(name="employed_persons",
+            joinColumns =  @JoinColumn(name = "person_id"),inverseJoinColumns = @JoinColumn(name = "company_id"))
     private Company company;
 
 

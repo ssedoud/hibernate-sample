@@ -1,6 +1,7 @@
-package com.project.sample.sedoud.dao;
+package com.project.sample.sedoud.dao.implementation;
 
-import com.project.sample.sedoud.entity.Person;
+import com.project.sample.sedoud.dao.PersonDao;
+import com.project.sample.sedoud.data.Person;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,11 +10,12 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
- * Dao for person entity
+ * Dao for person data
  */
 @Transactional
 @Repository
 public class PersonDaoImpl implements PersonDao {
+
     @PersistenceContext
     private EntityManager em;
 
