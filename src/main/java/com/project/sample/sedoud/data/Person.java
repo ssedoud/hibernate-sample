@@ -5,6 +5,7 @@ import javax.persistence.*;
 /**
  * Person data
  */
+@SuppressWarnings("ALL")
 @Entity
 public class Person {
 
@@ -20,6 +21,34 @@ public class Person {
     @JoinTable(name="employed_persons",
             joinColumns =  @JoinColumn(name = "person_id"),inverseJoinColumns = @JoinColumn(name = "company_id"))
     private Company company;
+
+    /**
+     * Unidirectionnal OneToOne relationship.
+     * This is a 1 to 0.1 relation because nullable is TRUE
+     * "Insertable" and "updatable" setted to FALSE
+     * prevent for this attribute to update/insert the relationship from this attribute default value is TRUE.
+     * Use @JoinColumn to indicate the foreign key column of the entity which owns this relationship.
+     * By default OneToOne relationship are EAGER
+     */
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "PASS_ID", insertable = true,
+            updatable = true, nullable = true, unique = true)
+    private Passport passport;
+
+
+    /**
+     * Bidirectionnal OneToOne relationship.
+     * This is a 1 to 0.1 relation because nullable is TRUE
+     * "Insertable" and "updatable" setted to FALSE
+     * prevent for this attribute to update/insert the relationship from this attribute default value is TRUE.
+     * Use @JoinColumn to indicate the foreign key column of the entity which owns this relationship
+     * and use "mappedby on the other side of the relationship.
+     * By default OneToOne relationship are EAGER
+     */
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "DRIVER_LICENSE_ID", insertable = true,
+            updatable = true, nullable = true, unique = true)
+    private DriverLicense driverLicense;
 
 
     public Person() {}
