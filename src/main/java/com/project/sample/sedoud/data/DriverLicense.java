@@ -9,11 +9,12 @@ import java.util.Date;
 /**
  * DriverLicense data
  */
-@Entity
+@Entity(name = "DRIVER_LICENSE")
 public class DriverLicense {
 
     @Id
-    @GeneratedValue
+//    @SequenceGenerator(name = "DRIVER_LICENSE_GENERATOR",sequenceName = "DRIVER_LICENSE_SEQUENCE")
+    @GeneratedValue//(strategy = SEQUENCE, generator="DRIVER_LICENSE_GENERATOR")
     private Long id;
 
     private String driverLicenseNumber;
@@ -70,5 +71,19 @@ public class DriverLicense {
      */
     public void setIssueDate(Date issueDate) {
         this.issueDate = issueDate;
+    }
+
+    /**
+     * Getter for person
+     */
+    public Person getPerson() {
+        return person;
+    }
+
+    /**
+     * Setter for person
+     */
+    public void setPerson(Person person) {
+        this.person = person;
     }
 }

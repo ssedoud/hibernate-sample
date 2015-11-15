@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class Person {
 
     @Id
+    @Column(name = "PERSON_ID")
     @GeneratedValue
     private Long id;
 
@@ -38,6 +39,7 @@ public class Person {
 
     /**
      * Bidirectionnal OneToOne relationship.
+     * The relationship will be managed on this side (see setter)
      * This is a 1 to 0.1 relation because nullable is TRUE
      * "Insertable" and "updatable" setted to FALSE
      * prevent for this attribute to update/insert the relationship from this attribute default value is TRUE.
@@ -50,6 +52,8 @@ public class Person {
             updatable = true, nullable = true, unique = true)
     private DriverLicense driverLicense;
 
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "person")
+    private SocialInsurance socialInsurance;
 
     public Person() {}
 
@@ -82,6 +86,49 @@ public class Person {
     }
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    /**
+     * Getter for passport
+     */
+    public Passport getPassport() {
+        return passport;
+    }
+
+    /**
+     * Setter for passport
+     */
+    public void setPassport(Passport passport) {
+        this.passport = passport;
+    }
+
+    /**
+     * Getter for driverLicense
+     */
+    public DriverLicense getDriverLicense() {
+        return driverLicense;
+    }
+
+    /**
+     * Setter for driverLicense
+     */
+    public void setDriverLicense(DriverLicense driverLicense) {
+        this.driverLicense = driverLicense;
+        driverLicense.setPerson(this);
+    }
+
+    /**
+     * Getter for socialInsurance
+     */
+    public SocialInsurance getSocialInsurance() {
+        return socialInsurance;
+    }
+
+    /**
+     * Setter for socialInsurance
+     */
+    public void setSocialInsurance(SocialInsurance socialInsurance) {
+        this.socialInsurance = socialInsurance;
     }
 
     @Override public String toString() {

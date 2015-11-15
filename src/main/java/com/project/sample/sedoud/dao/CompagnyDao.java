@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Dao for person data
  */
-public interface CompagnyDao {
+public interface CompagnyDao extends GenericDao {
 
     void persist(Company company);
 

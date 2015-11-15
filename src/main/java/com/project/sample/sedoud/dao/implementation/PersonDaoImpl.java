@@ -14,17 +14,17 @@ import java.util.List;
  */
 @Transactional
 @Repository
-public class PersonDaoImpl implements PersonDao {
+public class PersonDaoImpl extends GenericDaoImpl<Person> implements PersonDao {
 
     @PersistenceContext
     private EntityManager em;
 
-
-    public Long save(Person person) {
-        em.persist(person);
-        return person.getId();
+    @Override
+    public void persist(Person person) {
+        super.persist(person);
     }
 
+    @Override
     public List<Person> getAll() {
         return em.createQuery("SELECT p FROM Person p", Person.class).getResultList();
     }

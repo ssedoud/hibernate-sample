@@ -7,9 +7,11 @@ import java.util.List;
 /**
  * Dao for person data
  */
-public interface PersonDao {
+public interface PersonDao extends GenericDao {
 
-    Long save(Person person);
+    void persist(Person person);
 
     List<Person> getAll();
+
+
 }
