@@ -96,7 +96,6 @@ public class OneToOneTest extends AbstractTransactionalJUnit4SpringContextTests 
 
         employee.setPassport(passport);
         employee.setDriverLicense(driverLicense);
-        employee.setSocialInsurance(socialInsurance);
 
         //This will save the passport and driverLicense as well.
         personDao.persist(employee);
